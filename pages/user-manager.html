@@ -5,5 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quản lý tài khoản</title>
   </head>
-  <body></body>
+  <body>
+    <form id="form">
+      <input id="date-birth" type="date" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <script src="../utils/formatData.js"></script>
+
+    <script>
+      const formElement = document.querySelector("#form");
+      const dateBirthInputElement = document.querySelector("#date-birth");
+
+      // Bắt sự kiện submit
+      formElement.addEventListener("submit", function (e) {
+        // Ngăn chặn hành vi mặc định của Form (load lại trang)
+        e.preventDefault();
+
+        // Lấy ra giá trị từ input
+        const dateBirthValue = dateBirthInputElement.value;
+
+        // Format thời gian về dạng dd/mm/yyyy
+        const dateBirthFormated = formatDate(dateBirthValue, "yyyy/mm/dd");
+        console.log("dateBirthFormated: ", dateBirthFormated);
+      });
+    </script>
+  </body>
 </html>
